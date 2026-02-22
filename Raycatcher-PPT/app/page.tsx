@@ -114,24 +114,24 @@ export default function PresentationPage() {
         <section id="slide-6" className="snap-start">
           <SlidePortersForces />
         </section>
-        <section id="slide-7" className="snap-start">
+        {/* <section id="slide-7" className="snap-start">
           <SlideCustomerValue />
-        </section>
-        <section id="slide-8" className="snap-start">
+        </section> */}
+        {/* <section id="slide-8" className="snap-start">
           <SlideBusinessModel />
-        </section>
-        <section id="slide-9" className="snap-start">
+        </section> */}
+        {/* <section id="slide-9" className="snap-start">
           <SlideActivitiesResources />
-        </section>
-        <section id="slide-10" className="snap-start">
+        </section> */}
+        {/* <section id="slide-10" className="snap-start">
           <SlideFinancials />
-        </section>
-        <section id="slide-11" className="snap-start">
+        </section> */}
+        {/* <section id="slide-11" className="snap-start">
           <SlideAskRoadmap />
-        </section>
-        <section id="slide-12" className="snap-start">
+        </section> */}
+        {/* <section id="slide-12" className="snap-start">
           <SlideSimulator />
-        </section>
+        </section> */}
         <section id="slide-13" className="snap-start">
           <SlideThankYou />
         </section>
