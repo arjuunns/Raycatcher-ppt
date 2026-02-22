@@ -467,7 +467,7 @@ export default function SlidePortersForces() {
       ))}
 
       {/* Strategic Implications Slide */}
-      <StrategicSlide />
+      {/* <StrategicSlide /> */}
     </div>
   )
 }
