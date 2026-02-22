@@ -7,31 +7,31 @@ import { Sun } from "lucide-react"
 const team = [
   {
     name: "Shreyas Mahajan",
-    rollNo: "102317XXX",
+    rollNo: "102317085",
     initials: "SM",
     gradient: "from-amber-400 to-orange-500",
   },
   {
     name: "Kavya Aggarwal",
-    rollNo: "102317XXX",
+    rollNo: "102317109",
     initials: "KA",
     gradient: "from-rose-400 to-pink-500",
   },
   {
     name: "Arjun Singh",
-    rollNo: "102317XXX",
+    rollNo: "102317110",
     initials: "AS",
     gradient: "from-blue-400 to-indigo-500",
   },
   {
     name: "Akshit Singla",
-    rollNo: "102317XXX",
+    rollNo: "102317084",
     initials: "AS",
     gradient: "from-emerald-400 to-teal-500",
   },
   {
     name: "Chahat",
-    rollNo: "102317XXX",
+    rollNo: "102317086",
     initials: "CH",
     gradient: "from-purple-400 to-violet-500",
   },
