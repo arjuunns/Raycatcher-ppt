@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(pnpm dev:*)",
+      "Bash(pnpm generate-ppt:*)",
+      "Bash(taskkill:*)",
+      "Bash(exit 0)",
+      "Bash(del /F RayCatcher-Pitch-Deck.pptx)",
+      "Bash(timeout /t)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
