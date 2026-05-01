@@ -16,6 +16,9 @@ import {
   Monitor,
   Cloud,
 } from "lucide-react"
+import bmc from "@/data/bmc.json"
+import { formatINR } from "@/lib/format"
+
 
 const segments = [
   {
@@ -44,6 +47,11 @@ const segments = [
     name: "ESG / sustainability teams",
     need: "need measurable, reportable improvements in renewable energy contribution",
   },
+  // BMC-derived segments
+  { icon: Home, name: "Residential solar users (1–10 kW)", need: `${bmc.residential_pct_2025}% of India's 2025 rooftop additions` },
+  { icon: Building2, name: "Small & medium commercial users (10–100 kW)", need: "lower electricity bills and better roof utilisation" },
+  { icon: Factory, name: "Solar EPC companies", need: "partner for installations and distribution" },
+  { icon: Leaf, name: "Agri-solar & irrigation users", need: "specialised mounting and water-resilient installs" },
 ]
 
 const valueProps = [
@@ -56,6 +64,7 @@ const valueProps = [
     text: "Dashboard (web + mobile): live power, daily/weekly/monthly gain, system health alerts, ROI tracker",
   },
   { icon: Cloud, text: "Low-maintenance hardware with over-the-air firmware updates to improve algorithms over time" },
+  { icon: Zap, text: `Serves ${bmc.cumulative_rooftop_gw} GW cumulative rooftop base (India, 2025)` },
 ]
 
 export default function SlideCustomerValue() {

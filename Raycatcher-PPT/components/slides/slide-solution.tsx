@@ -2,17 +2,22 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Check, Sun, Smartphone, RefreshCw, Cpu, Cloud, Zap, Settings } from "lucide-react"
+import { Check, Sun, Smartphone, RefreshCw, Cpu, Cloud, Zap, Settings, TrendingUp } from "lucide-react"
+import bmc from "@/data/bmc.json"
+import { formatINR } from "@/lib/format"
 
 const features = [
   { icon: Settings, text: "Compact motorised mount + sensor + controller that continuously tracks the sun's position" },
   { icon: Cpu, text: "Algorithms adjust panel tilt through the day to stay close to the optimal incident angle" },
   { icon: RefreshCw, text: "Retrofit-friendly: can be attached under existing panels with minimal structural change" },
+  { icon: Zap, text: "Affordable: targets ₹20–25K per unit vs commercial dual-axis trackers at ₹5–10L+" },
   { icon: Cloud, text: "Integrated IoT module sends data to a secure cloud platform" },
   {
     icon: Smartphone,
     text: "Web and mobile dashboard display live generation, extra kWh vs fixed tilt and health alerts",
   },
+  { icon: TrendingUp, text: "Improves ROI & reduces payback period — Indian C&I solar payback currently ~3 years" },
+  { icon: Zap, text: `Serves India's ${bmc.cumulative_rooftop_gw} GW cumulative rooftop base (2025)` },
 ]
 
 export default function SlideSolution() {
@@ -55,7 +60,7 @@ export default function SlideSolution() {
           className="inline-flex items-center gap-2 bg-gradient-to-r from-solar-yellow/20 to-muted-green/20 px-6 py-3 rounded-full mb-10 border border-solar-yellow/30"
         >
           <Zap className="w-5 h-5 text-solar-yellow" />
-          <span className="text-solar-yellow font-bold text-lg">Target gain of up to ≈30% extra energy</span>
+          <span className="text-solar-yellow font-bold text-lg">≈30% more energy vs fixed-tilt (industry benchmark: 20–30%)</span>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">

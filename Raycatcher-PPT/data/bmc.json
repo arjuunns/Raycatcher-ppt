@@ -1,0 +1,24 @@
+{
+  "manufacturing_bom_min": 12000,
+  "manufacturing_bom_max": 16000,
+  "cloud_monthly": 5000,
+  "installation_min": 1500,
+  "installation_max": 2000,
+  "initial_capex_lakhs": 20,
+  "year1_revenue_lakhs": 119,
+  "net_profit_lakhs": 7.35,
+  "cumulative_rooftop_gw": 20.8,
+  "target_households": 10000000,
+  "target_market_value_2032_usd_billion": 19.8
+  ,
+  "usd_to_inr": 83,
+  "tracking_daily_energy_kwh": 5.1,
+  "fixed_daily_energy_kwh": 3.2,
+  "market_2024_inr": 6200000000,
+  "target_market_value_2032_inr": 19800000000,
+  "tracker_market_2026_inr": 1180000000,
+  "global_tracker_cagr_pct": 15.56,
+  "rooftop_additions_2025_gw": 7.1,
+  "residential_pct_2025": 76,
+  "installations_yoy_2025_pct": 158
+}

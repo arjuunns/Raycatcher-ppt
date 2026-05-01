@@ -3,6 +3,8 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Megaphone, Users, Handshake, Building, Cpu, Globe, Laptop } from "lucide-react"
+import bmc from "@/data/bmc.json"
+import { formatINR } from "@/lib/format"
 
 const channelsData = [
   "Bundle RayCatcher with solar EPC and installer offerings",
@@ -147,6 +149,22 @@ export default function SlideBusinessModel() {
               ))}
             </ul>
           </motion.div>
+        </div>
+        
+        {/* Numeric highlights pulled from BMC data */}
+        <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-border">
+            <h4 className="font-semibold text-navy mb-1">Manufacturing BOM</h4>
+            <p className="text-sm text-charcoal/80">{formatINR(bmc.manufacturing_bom_min)} – {formatINR(bmc.manufacturing_bom_max)}</p>
+          </div>
+          <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-border">
+            <h4 className="font-semibold text-navy mb-1">Cloud</h4>
+            <p className="text-sm text-charcoal/80">{formatINR(bmc.cloud_monthly)}/mo (AWS estimated)</p>
+          </div>
+          <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-border">
+            <h4 className="font-semibold text-navy mb-1">Cumulative Rooftop Base</h4>
+            <p className="text-sm text-charcoal/80">{bmc.cumulative_rooftop_gw} GW (India, 2025)</p>
+          </div>
         </div>
       </div>
     </div>

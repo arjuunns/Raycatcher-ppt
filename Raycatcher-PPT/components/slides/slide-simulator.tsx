@@ -10,11 +10,13 @@ import * as THREE from "three"
 import { Play, Pause, RotateCcw, Sun, Sunrise, Sunset, TrendingUp, Clock, Gauge } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
+import bmc from "@/data/bmc.json"
 
 // Constants
 const SUNRISE = 360 // 6:00 AM
 const SUNSET = 1080 // 6:00 PM
 const MAX_POWER = 200
+const MAX_GAIN_PCT = 26
 
 function getSunPosition(minutes: number) {
   const dayProgress = Math.max(0, Math.min(1, (minutes - SUNRISE) / (SUNSET - SUNRISE)))
@@ -270,11 +272,12 @@ export default function SlideSimulator() {
   const panelAngle = Math.max(5, Math.min(85, elevation))
   const trackingPower = calculatePower(elevation, panelAngle)
   const fixedPower = calculatePower(elevation, 30)
-  const efficiencyGain = fixedPower > 0 ? ((trackingPower - fixedPower) / fixedPower) * 100 : 0
+  const rawEfficiencyGain = fixedPower > 0 ? ((trackingPower - fixedPower) / fixedPower) * 100 : 0
+  const efficiencyGain = Math.min(rawEfficiencyGain, MAX_GAIN_PCT)
 
-  // Simulated daily totals
-  const trackingDailyEnergy = 5.1
-  const fixedDailyEnergy = 3.2
+  // Simulated daily totals (from BMC data)
+  const trackingDailyEnergy = bmc.tracking_daily_energy_kwh ?? 5.1
+  const fixedDailyEnergy = bmc.fixed_daily_energy_kwh ?? 3.2
 
   useEffect(() => {
     if (isPlaying) {

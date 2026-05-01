@@ -5,19 +5,23 @@ import { useRef } from "react"
 import { Target, Calendar, Check, Coins, Package, Code, Rocket, Building, Award, Globe } from "lucide-react"
 
 const revenueStreams = [
-  { icon: Package, text: "Sale of RayCatcher tracking modules (per panel / per row pricing)" },
-  { icon: Coins, text: "Installation and commissioning services for new and retrofit projects" },
-  { icon: Check, text: "Annual maintenance contracts (AMC) for hardware and field support" },
-  { icon: Code, text: "Subscription fees for monitoring dashboard (tiered by plant size)" },
+  { icon: Package, text: "Hardware sales ₹20,000–25,000/unit (target pricing)" },
+  { icon: Coins, text: "Installation & commissioning: ₹1,500–2,000/system" },
+  { icon: Check, text: "Annual maintenance contracts (AMC): ₹1,000–2,000/system/year" },
+  { icon: Code, text: "Subscription dashboard: ₹500–1,000/system/month; target MRR ₹10L by FY27" },
+  { icon: Building, text: "B2B bulk contracts (EPC channel): Avg deal size ₹5–20L" },
   { icon: Building, text: "Licensing of tracking algorithms to OEMs or large EPC players" },
-  { icon: Globe, text: "Data & performance analytics for enterprises, utilities and research" },
+  { icon: Globe, text: "Data & performance analytics for enterprises and utilities" },
 ]
 
+import bmc from "@/data/bmc.json"
+import { formatINR } from "@/lib/format"
+
 const fundingDetails = [
-  { text: "Seed funding required: ₹40 L", highlight: true },
-  { text: "₹20 L – manufacturing setup and tooling", highlight: false },
-  { text: "₹10 L – pilot deployments, marketing and certifications", highlight: false },
-  { text: "₹10 L – refining product + software, expanding team", highlight: false },
+  { text: `Seed funding required: ${formatINR(4000000)}`, highlight: true },
+  { text: `${formatINR(bmc.initial_capex_lakhs * 100000 / 2)} – manufacturing setup and tooling`, highlight: false },
+  { text: `${formatINR(1000000)} – pilot deployments, marketing and certifications`, highlight: false },
+  { text: `${formatINR(1000000)} – refining product + software, expanding team`, highlight: false },
   { text: "Operations profitable from Year 1; CAPEX payback ≈3 years", highlight: false },
   { text: "Meaningful investor returns from Year 4+", highlight: false },
 ]

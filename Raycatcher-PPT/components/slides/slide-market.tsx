@@ -5,33 +5,37 @@ import { useRef } from "react"
 import { Users, TrendingUp, ThumbsUp, Target } from "lucide-react"
 import AnimatedPieChart from "@/components/charts/animated-pie-chart"
 import AnimatedBar from "@/components/charts/animated-bar"
+import bmc from "@/data/bmc.json"
+import { formatINR } from "@/lib/format"
 
 export default function SlideMarket() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   const adoptionData = [
-    { label: "Already use solar", value: 52.3, color: "#22C55E" },
-    { label: "Plan to adopt", value: 35.8, color: "#F59E0B" },
-    { label: "No plans", value: 11.9, color: "#94A3B8" },
+    { label: "Currently using solar", value: 23, color: "#22C55E" },
+    { label: "Planning to install", value: 23.4, color: "#F59E0B" },
+    { label: "No / Not planning", value: 53.6, color: "#94A3B8" },
   ]
 
   const installationData = [
-    { label: "Residential rooftops", value: 71.6, color: "#1E3A5F" },
-    { label: "Commercial/Institutional", value: 28.4, color: "#64748B" },
+    { label: "Moderately familiar", value: 38.3, color: "#F59E0B" },
+    { label: "Slightly familiar", value: 34, color: "#FB923C" },
+    { label: "Very familiar", value: 19.1, color: "#22C55E" },
+    { label: "Not familiar at all", value: 8.5, color: "#94A3B8" },
   ]
 
   const interestData = [
-    { label: "Yes", value: 51.4, color: "#22C55E" },
-    { label: "Maybe", value: 46.8, color: "#F59E0B" },
-    { label: "No", value: 1.8, color: "#EF4444" },
+    { label: "Sometimes", value: 46.8, color: "#F59E0B" },
+    { label: "Often", value: 27.7, color: "#22C55E" },
+    { label: "Always", value: 8.5, color: "#1E3A5F" },
   ]
 
   const keyStats = [
-    { icon: ThumbsUp, value: "74.3%", label: "rate tracking usefulness 4-5/5" },
-    { icon: Target, value: "60.5%", label: "say real-time monitoring is important" },
-    { icon: TrendingUp, value: "59.6%", label: "willing to pay ₹2k-₹10k extra for 25-40% more efficiency" },
-    { icon: Users, value: "90.7%", label: "would recommend if it performs as promised" },
+    { icon: ThumbsUp, value: "44.7%", label: "say real-time angle adjustment is 'Very Important'" },
+    { icon: Target, value: "80.9%", label: "see angle tracking as important overall" },
+    { icon: TrendingUp, value: "46.8%", label: "say panels only 'Sometimes' run at maximum efficiency" },
+    { icon: Users, value: "72.3%", label: "rate energy efficiency as important in daily life" },
   ]
 
   return (
@@ -69,7 +73,7 @@ export default function SlideMarket() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg text-charcoal/80 mb-8 max-w-4xl"
         >
-          We surveyed <span className="font-bold text-navy">109 potential users</span> across students, working
+          We surveyed <span className="font-bold text-navy">47 respondents</span> across students, working
           professionals, homeowners and business owners, combined with rooftop solar adoption data.
         </motion.p>
 
@@ -140,8 +144,21 @@ export default function SlideMarket() {
           transition={{ duration: 0.6, delay: 0.9 }}
           className="text-sm text-muted-green font-medium mt-6 text-center bg-muted-green/10 py-3 px-6 rounded-full inline-block mx-auto"
         >
-          Strong intent + willingness to pay shows real market pull for RayCatcher
+          80.9% of respondents value real-time angle adjustment — validating RayCatcher's core proposition
         </motion.p>
+
+        {/* TAM / Market size */}
+        <div className="mt-6">
+          <div className="max-w-2xl mx-auto bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-blue-100">
+            <h4 className="text-sm font-semibold text-navy mb-1 text-center">Market Size & TAM</h4>
+            <p className="text-xs text-charcoal/60 text-center">
+              Estimated India rooftop solar market value (2024): <strong>₹{(bmc.market_2024_inr/10000000).toFixed(2)} Cr</strong> (~₹6.2B),
+              growing to <strong>₹{(bmc.target_market_value_2032_inr/10000000).toFixed(2)} Cr</strong> (~₹19.8B) by 2032
+              <br />India solar tracker market: ≈₹{(bmc.tracker_market_2026_inr/10000000).toFixed(2)} Cr by 2026
+              <br />Rooftop additions (2025): {bmc.rooftop_additions_2025_gw} GW (+{bmc.installations_yoy_2025_pct}% YoY), {bmc.residential_pct_2025}% residential
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )
